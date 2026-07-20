@@ -1,0 +1,18 @@
+import base64
+
+with open("images/music.png", "rb") as f:
+    img = base64.b64encode(f.read()).decode()
+
+st.markdown(f"""
+<div class="song-card">
+    <img src="data:image/png;base64,{img}" class="album-cover">
+
+    <div class="song-info">
+        <h3>{rec['Song']}</h3>
+        <p><span style="color:#1DB954;font-weight:bold;">👤 Artist:</span>
+        {rec['Artist']}</p>
+
+        <span class="genre-badge">{rec['Genre'].upper()}</span>
+    </div>
+</div>
+""", unsafe_allow_html=True)
